@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% block titulo %} Inicio {% endblock %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-4">
+          <div class="card my-3 shadow">
+              <div class="card-body">
+                  <form method="POST">
+                  {% csrf_token %}
+                 
+                  {{ form |crispy }}
+                  
+                  <input  class="btn btn-dark btn-block" type="submit" value=" Enviar Post">
+
+                  </form>
+              </div>
+          </div>
+
+        </div>
+
+       <div class="col-md-8">
+           {% if posts %}
+           {% for post in posts %}
+        <div class="card shadow my-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img  class="img-thumbnail" src="{{post.autor.perfil.imagen.url}}" alt="img">
+                    </div>
+                    <div class="col-md-8">
+                        <small> {{post.fecha_creacion}}</small>
+                        <hr>
+                        <a  class="h3" href="{% url 'detalle_post' post.id %}">{{post.titulo}} </a>
+                        <h5> {{post.subtitulo}}</h5>
+                        <br>
+                        <br>
+                        <p class=" text-justify my-3">
+                           
+                            {{post.contenido |safe}}</p>
+                        <img class="img-thumbnail" src="{{ post.imagen }}" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+         {% endfor %}
+         {% else %}
+         <h1> No existen post Registrados </h1>
+         {% endif %}
+    </div>
+    
+  
+    </div>
+    
+</div>
+{% endblock  %}
+

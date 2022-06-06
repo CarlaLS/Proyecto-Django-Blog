@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block titulo %} Logout {% endblock %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="cover">
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-6 offset-md-3">
+          <div class="card my-3 shadow">
+              <div class="card-body">
+                  
+                <div class="alert alert-info mt-3">
+                    Has cerrado sección correctamente!
+                </div>
+                <div class="text-center my-3">
+                    <a href="{% url 'usuarios-login' %}" > Ingresar nuevamente </a>
+
+                </div>
+              </div>
+          </div>
+
+        </div>
+  
+    </div>
+</div> 
+</div>
+{% endblock  %}

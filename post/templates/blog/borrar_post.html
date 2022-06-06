@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block titulo %} Inicio {% endblock %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-8 offset-md-2">
+          <div class="card my-3 shadow">
+              <div class="card-body">
+                 <div class="alert alert-danger">
+                     Está seguro que desea borrar el post?
+                 </div> 
+                 <form method="POST">
+                     {% csrf_token %}
+                     <a class=" btn btn-secondary btn-sm" href="{% url 'detalle_post' post.id %}"> Cancelar </a>
+                     <input class="btn btn-primary btn-sm" type="submit" value="Confirmar">
+                 </form>
+              </div>
+          </div>
+
+        </div>
+
+     
+      
+    
+  
+    </div>
+    
+</div>
+{% endblock  %}

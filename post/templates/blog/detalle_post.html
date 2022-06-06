@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% block titulo %} Inicio {% endblock %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-8 offset-md-2">
+          <div class="card my-3 shadow">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <img class=" img-thumbnail"src="{{post.autor.perfil.imagen.url}}" alt="perfil-img">
+                      </div>
+                      <div class="col-md-8">
+                        <small>  {{ post.fecha_creacion}}</small>
+                        {% if post.autor == request.user %}
+                        <span><a class="btn btn-primary float-right btn-sm" href="{% url 'editar_post' post.id %}">Editar</a></span>
+                        <span><a class="btn btn-danger mx-2 float-right btn-sm" href="{% url 'borrar_post' post.id %}">Borrar</a></span>
+                        {% endif %}
+                        <hr>
+                        <h4>{{post.titulo}}</h4>
+                        <h6>{{post.subtitulo}}</h6>
+                        <p>{{post.contenido | safe }}</p>
+                        <img class="img-thumbnail " src="{{ post.imagen }}" alt="img">
+                      </div>
+                  </div>
+                  <p class=" mt-3">
+                    <a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      Comentarios: {{ post.comentario_count }}
+                    </a>
+                   
+                  </p>
+                  <div class="collapse" id="collapseExample">
+                    <div style="height: 250px; overflow-y: scroll;" class="card card-body">
+                      {% for comentario in post.comentarios %}
+                     <p class="text-justify">
+                       {{ comentario.contenido }}
+                     </p>
+                     {% endfor %}
+                    
+                    </div>
+                  </div>
+                  <form method="POST">
+                    {% csrf_token %}
+                    {{ c_form | crispy }}
+                    <input class=" btn btn-primary btn-sm " type="submit" value="Comentar ">
+                  </form>
+              </div>
+          </div>
+
+        </div>
+
+     
+      
+    
+  
+    </div>
+    
+</div>
+{% endblock  %}
