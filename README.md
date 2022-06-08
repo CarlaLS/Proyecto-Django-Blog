@@ -7,7 +7,9 @@ Este es mi primer proyecto con Django, se trata de un formato de Blog básico y 
 Seguramente a medida que vaya adquiriendo práctica y conocimientos voy a poder mejorar esta presentación.
 
 
-Para que puedas ver el video del blog en funcionamiento: https://drive.google.com/file/d/1hubpD1Zcc7KOZOs5Jmomo7lhXLFKx2rC/view?usp=sharing
+Para que puedas ver el video del blog en funcionamiento:
+Para ingresar al administrador de Django:     https://drive.google.com/file/d/1lgpJAf-2Ii3xz5gAwdgCGUIJZt5-nxGp/view?usp=sharing
+usuario:admin contraseña: 789123
 
 
 

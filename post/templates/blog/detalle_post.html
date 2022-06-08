@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block contenido %}
 <div class="container">
-    <div class="row mt-5 pt-3">
+    <div class="row registro pt-3">
         <div class="col-md-8 offset-md-2">
           <div class="card my-3 shadow">
               <div class="card-body">
@@ -12,15 +12,17 @@
                           <img class=" img-thumbnail"src="{{post.autor.perfil.imagen.url}}" alt="perfil-img">
                       </div>
                       <div class="col-md-8">
-                        <small>  {{ post.fecha_creacion}}</small>
-                        {% if post.autor == request.user %}
+                        <small >  {{ post.fecha_creacion}}</small>
+                        <small>  Escrito por : {{ post.autor}}</small>
+                        
                         <span><a class="btn btn-primary float-right btn-sm" href="{% url 'editar_post' post.id %}">Editar</a></span>
                         <span><a class="btn btn-danger mx-2 float-right btn-sm" href="{% url 'borrar_post' post.id %}">Borrar</a></span>
-                        {% endif %}
+                        
+                       
                         <hr>
-                        <h4>{{post.titulo}}</h4>
-                        <h6>{{post.subtitulo}}</h6>
-                        <p>{{post.contenido | safe }}</p>
+                        <h4 class="text-justify">{{post.titulo}}</h4>
+                        <h6 class="text-justify">{{post.subtitulo}}</h6>
+                        <p class="text-justify">{{post.contenido | safe }}</p>
                         <img class="img-thumbnail " src="{{ post.imagen }}" alt="img">
                       </div>
                   </div>

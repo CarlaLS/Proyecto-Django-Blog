@@ -3,9 +3,9 @@ from .models import Post, Comentario
 
 
 
-
 class PostForm(forms.ModelForm):
     contenido = forms.CharField(widget=forms.Textarea(attrs={'rows':4}))
+    
     class Meta:
 
         model=Post

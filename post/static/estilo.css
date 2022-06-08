@@ -6,3 +6,28 @@
   
 
 }
+
+
+.pagina{
+margin-left: 450px;
+}
+
+.registro{
+  margin-top: 150px;
+  text-align: center;
+}
+
+
+.nav-item{
+  justify-content: space-around;
+}
+
+.nav-link{
+  justify-self: normal;
+
+}
+
+.boton{
+  border: none;
+  border-radius: 1.5 px;
+}

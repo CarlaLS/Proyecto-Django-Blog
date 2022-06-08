@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 
 
 # Create your models here.
@@ -18,6 +19,7 @@ class Post (models.Model):
     autor= models.ForeignKey(User, on_delete=models.CASCADE)
     contenido= RichTextField()
     imagen = models.URLField( blank=False, null=False)
+    
     
     
     
@@ -45,3 +47,4 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.contenido
+
